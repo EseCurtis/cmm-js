@@ -1,0 +1,31 @@
+{
+  "name": "cmm-util",
+  "version": "1.0.0",
+  "description": "A utility used to obtain absolute CSS measurements in JavaScript",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/cmm-util"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "CSS",
+    "measurements",
+    "JavaScript",
+    "utility",
+    "viewport",
+    "conversion",
+    "units"
+  ],
+  "author": "Ese Curtis",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.12.12",
+    "typescript": "^5.4.5"
+  }
+}
