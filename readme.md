@@ -1,6 +1,4 @@
 
-
-```markdown
 # cmm-util - Measurement Utility
 
 `cmm-util` is a versatile measurement utility for JavaScript that provides various unit conversions such as pixels, viewport units, em, dpi, inches, centimeters, millimeters, points, and picas. It is designed to work flexibly across different environments, including those without access to the `window` object.
@@ -93,5 +91,3 @@ Developed by [Ese Curtis](https://esecurtis.netlify.app).
 
 ---
 
-
-```
