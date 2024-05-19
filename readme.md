@@ -1,93 +1,45 @@
 
-# cmm-util - Measurement Utility
+# cmm-util
 
-`cmm-util` is a versatile measurement utility for JavaScript that provides various unit conversions such as pixels, viewport units, em, dpi, inches, centimeters, millimeters, points, and picas. It is designed to work flexibly across different environments, including those without access to the `window` object.
+## Overview
+
+`cmm-util` is a utility library that provides a convenient way to convert a given value into equivalent pixel values based on different measurement units. It supports a variety of units including viewport height (vh), viewport width (vw), pixels (px), ems (em), root ems (rem), dots per inch (dpi), inches, centimeters (cm), millimeters (mm), points (pt), and picas (pc).
 
 ## Installation
 
-You can install the package using npm or yarn:
+You can install `cmm-util` using npm:
 
-```sh
+```bash
 npm install cmm-util
-```
-
-or
-
-```sh
-yarn add cmm-util
 ```
 
 ## Usage
 
-Import the `cm` function and use it to create a measurement utility object with the given value. This object provides various unit conversions.
-
-### Example
+Here's how you can use `cmm-util` in your JavaScript or TypeScript project:
 
 ```javascript
-import cm from 'cmm-util';
+import cmm from 'cmm-util';
 
-const measurement = cm(100);
+const measurement = cmm(100);
 
-console.log('100px in vh:', measurement.vh);
-console.log('100px in vw:', measurement.vw);
-console.log('100px in em:', measurement.em);
-console.log('100px in dpi:', measurement.dpi);
-console.log('100px in inches:', measurement.inch);
-console.log('100px in cm:', measurement.cm);
-console.log('100px in mm:', measurement.mm);
-console.log('100px in pt:', measurement.pt);
-console.log('100px in pc:', measurement.pc);
+console.log(measurement.vh);  // Outputs the pixel equivalent of the value in viewport height units
+console.log(measurement.vw);  // Outputs the pixel equivalent of the value in viewport width units
+console.log(measurement.px);  // Outputs the pixel equivalent of the value in pixels
+console.log(measurement.em);  // Outputs the pixel equivalent of the value in ems
+console.log(measurement.rem); // Outputs the pixel equivalent of the value in root ems
+console.log(measurement.dpi); // Outputs the pixel equivalent of the value in dots per inch
+console.log(measurement.inch); // Outputs the pixel equivalent of the value in inches
+console.log(measurement.cm);  // Outputs the pixel equivalent of the value in centimeters
+console.log(measurement.mm);  // Outputs the pixel equivalent of the value in millimeters
+console.log(measurement.pt);  // Outputs the pixel equivalent of the value in points
+console.log(measurement.pc);  // Outputs the pixel equivalent of the value in picas
 ```
 
 ## API
 
-### cm(value: number): MeasurementUtility
+The `cmm` function takes a number as input and returns an object with properties for each measurement unit. Each property is a getter that calculates the equivalent pixel value of the input based on the corresponding unit when accessed.
 
-Creates a measurement utility object with the given value.
-
-#### Parameters
-
-- `value` (number): The value to be used for unit conversion.
-
-#### Returns
-
-- `MeasurementUtility`: An object with various unit conversions.
-
-### MeasurementUtility Properties
-
-- `vh` (number): Converts the value to viewport height units.
-- `vw` (number): Converts the value to viewport width units.
-- `px` (number): Returns the value in pixels.
-- `em` (number): Converts the value to em units based on the root font size.
-- `dpi` (number): Converts the value to DPI-adjusted pixels.
-- `inch` (number): Converts the value to inches.
-- `cm` (number): Converts the value to centimeters.
-- `mm` (number): Converts the value to millimeters.
-- `pt` (number): Converts the value to points (1pt = 1.333px).
-- `pc` (number): Converts the value to picas (1pc = 12pt = 16px).
-
-## Environment Compatibility
-
-The `cmm-util` utility is designed to work in various environments, including those without access to the `window` object (e.g., Node.js or server-side rendering). In such cases, it provides reasonable default dimensions:
-
-- Default viewport height: 1080 pixels
-- Default viewport width: 1920 pixels
-- Default DPI: 96
-- Default root font size: 16 pixels
-
-These defaults ensure that the utility remains functional and provides meaningful conversions even in non-browser environments.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any bugs or feature requests.
-
-## Author
-
-Developed by [Ese Curtis](https://esecurtis.netlify.app).
-
----
-
+`cmm-util` is [MIT licensed](LICENSE).

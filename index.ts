@@ -1,31 +1,42 @@
-/**
- * Function to create a measurement utility object with a given value.
- * @param {number} value - The value to be used for unit conversion.
- * @returns {MeasurementUtility} The measurement utility object with the given value.
- */
+// MeasurementUtility interface
+interface MeasurementUtility {
+    vh: number;
+    vw: number;
+    px: number;
+    em: number;
+    rem: number;
+    dpi: number;
+    inch: number;
+    cm: number;
+    mm: number;
+    pt: number;
+    pc: number;
+}
+
+// cm function
 function cmm(value: number): MeasurementUtility {
     const hasWindow = typeof window !== 'undefined';
     const hasDocument = typeof document !== 'undefined';
 
     const dpi = hasWindow ? (window.devicePixelRatio * 96) : 96;
     const fontSize = hasDocument ? parseFloat(getComputedStyle(document.documentElement).fontSize) : 16;
-    
-    // Assuming default dimensions for environments without window
-    const defaultWindowHeight = 1080; // Example default height
-    const defaultWindowWidth = 1920;  // Example default width
+    const rootFontSize = 16;
 
     return {
         get vh() {
-            return hasWindow ? (value / 100) * window.innerHeight : (value / 100) * defaultWindowHeight;
+            return hasWindow ? (value / 100) * window.innerHeight : (value / 100) * 1080; // Example default height
         },
         get vw() {
-            return hasWindow ? (value / 100) * window.innerWidth : (value / 100) * defaultWindowWidth;
+            return hasWindow ? (value / 100) * window.innerWidth : (value / 100) * 1920; // Example default width
         },
         get px() {
             return value;
         },
         get em() {
             return value * fontSize;
+        },
+        get rem() {
+            return value * rootFontSize;
         },
         get dpi() {
             return (value / 96) * dpi;
@@ -46,20 +57,6 @@ function cmm(value: number): MeasurementUtility {
             return value * 0.0625; // 1pc = 12pt = 16px (96px = 6pc)
         }
     };
-}
-
-// Interface for the measurement utility object
-interface MeasurementUtility {
-    vh: number;
-    vw: number;
-    px: number;
-    em: number;
-    dpi: number;
-    inch: number;
-    cm: number;
-    mm: number;
-    pt: number;
-    pc: number;
 }
 
 export default cmm;
